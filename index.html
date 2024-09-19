@@ -23,16 +23,21 @@
         }
         canvas {
             max-width: 300px;
-            max-height: 300px;
+            max-height: 500px;
             margin: 10 auto;
         }
+        body {
+  background-color: lightblue; /* Set the background color to light blue */
+  font-family: Roboto, sans-serif; /* Set the font to Arial, or a generic sans-serif if Arial is not available */
+
+}
     </style>
 </head>
 <body>
 
 <div class="chart-container">
     <div class="chart-item">
-        <h2>6014</h2>
+        <h2>6014 - Games(Main)</h2>
         <canvas id="chart_6014"></canvas>
     </div>
     <div class="chart-item">
@@ -170,8 +175,8 @@ createDonutChart('chart_7017', ["#FF0000 (Red)", "#00FF00 (Green)", "#FFFFFF (Wh
 createDonutChart('chart_7018', ["#FF0000 (Red)", "#0000FF (Blue)", "#FFFFFF (White)", "#000000 (Black)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#FF00FF (Magenta)", "#FF6666 (Light Red)"],
     [76, 68, 66, 59, 58, 35, 28, 9, 6, 6], ["#FF0000", "#0000FF", "#FFFFFF", "#000000", "#00FF00", "#FFFF00", "#008000", "#FFD700", "#FF00FF", "#FF6666"], [24.76, 22.15, 21.51, 19.23, 18.91, 11.42, 9.13, 2.93, 1.96, 1.96]);
 
-createDonutChart('chart_7019', ["#FFFFFF (White)", "#0000FF (Blue)", "#FFFFFF (White)", "#000000 (Black)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#FF00FF (Magenta)", "#FF6666 (Light Red)"],
-    [76, 68, 66, 59, 58, 35, 28, 9, 6, 6], ["#FF0000", "#0000FF", "#FFFFFF", "#000000", "#00FF00", "#FFFF00", "#008000", "#FFD700", "#FF00FF", "#FF6666"], [24.76, 22.15, 21.51, 19.23, 18.91, 11.42, 9.13, 2.93, 1.96, 1.96]);
+createDonutChart('chart_7019', ["#FFFFFF (White)", "#000000 (Black)", "#FF0000 (Red)", "#0000FF (Blue)", "#00FF00 (Green)", "#008000 (Dark Green)", "#FFFF00 (Yellow)", "#FFC000 (Golden yellow)", "#003087 (Dark blue)", "#FFFFE6 (Light Yellow)"],
+    [69, 62, 61, 53, 39, 21, 14, 7, 6, 6], ["#FFFFFF", "#000000", "#FF0000", "#0000FF", "#00FF00", "#008000", "#FFFF00", "#FFC000", "#003087", "#FFFFE6"], [20.41, 18.34, 18.04, 15.68, 11.54, 6.21, 4.14, 2.07, 1.78, 1.78]);
 
 
     // Add more donut charts for other categories using the same pattern
