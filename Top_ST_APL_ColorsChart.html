@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Distribution Donut Charts</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        h2 {
+            font-size: 25px;
+            text-align: center;
+        }
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin: 20px 0;
+        }
+        .chart-item {
+            flex: 1 1 15%;
+            text-align: center;
+            margin: 10px;
+        }
+        canvas {
+            max-width: 300px;
+            max-height: 300px;
+            margin: 10 auto;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chart-container">
+    <div class="chart-item">
+        <h2>6014</h2>
+        <canvas id="chart_6014"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7001 - Action</h2>
+        <canvas id="chart_7001"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7002 - Adventure</h2>
+        <canvas id="chart_7002"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7004 - Board</h2>
+        <canvas id="chart_7004"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7005 - Card</h2>
+        <canvas id="chart_7005"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7006 - Casino</h2>
+        <canvas id="chart_7006"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7009 - Family</h2>
+        <canvas id="chart_7009"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7011 - Music</h2>
+        <canvas id="chart_7011"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7012 - Puzzle</h2>
+        <canvas id="chart_7012"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7013 - Racing</h2>
+        <canvas id="chart_7013"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7014 - Role Playing</h2>
+        <canvas id="chart_7014"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7015 - Simulation</h2>
+        <canvas id="chart_7015"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7016 - Sports</h2>
+        <canvas id="chart_7016"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7017 - Strategy</h2>
+        <canvas id="chart_7017"></canvas>
+    </div>
+    <div class="chart-item">
+        <h2>7018 - Trivia</h2>
+        <canvas id="chart_7018"></canvas>
+    </div>
+    <div class="chart-item"></div>
+        <h2>7019 - Word</h2>
+        <canvas id="chart_7019"></canvas>
+    </div>
+</div>
+
+<script>
+    function createDonutChart(chartId, labels, data, colors, percentages) {
+        var ctx = document.getElementById(chartId).getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: labels.map((label, index) => `${label} (${percentages[index]}%)`),
+                datasets: [{
+                    data: data,
+                    backgroundColor: colors,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                cutout: '50%',  // Donut chart style
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: {
+                            color: 'black'
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    createDonutChart('chart_6014', ["#FF0000 (Red)", "#0000FF (Blue)", "#00FF00 (Green)", "#000000 (Black)", "#FFFF00 (Yellow)", "#FFFFFF (White)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#A52A2A (Brown)", "#800080 (Purple)"],
+        [77, 59, 55, 45, 42, 40, 17, 15, 12, 11], ["#FF0000", "#0000FF", "#00FF00", "#000000", "#FFFF00", "#FFFFFF", "#008000", "#FFD700", "#A52A2A", "#800080"], [20.37, 15.61, 14.55, 11.9, 11.12, 10.59, 4.51, 3.98, 3.18, 2.91]);
+    
+    createDonutChart('chart_7001', ["#FF0000 (Red)", "#00FF00 (Green)", "#FFFFFF (White)", "#000000 (Black)", "#0000FF (Blue)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#00BFFF (Deep Sky Blue)", "#964B00 (Brown)"],
+        [81, 61, 58, 58, 56, 36, 10, 10, 9, 6], ["#FF0000", "#00FF00", "#FFFFFF", "#000000", "#0000FF", "#FFFF00", "#008000", "#FFD700", "#00BFFF", "#964B00"], [24.92, 18.77, 17.86, 17.86, 17.23, 11.08, 3.08, 3.08, 2.77, 1.85]);
+
+    createDonutChart('chart_7002', ["#FF0000 (Red)", "#00FF00 (Green)", "#0000FF (Blue)", "#FFFFFF (White)", "#FFFF00 (Yellow)", "#000000 (Black)", "#008000 (Dark Green)", "#A52A2A (Brown)", "#FFD700 (Gold)", "#00BFFF (Deep Sky Blue)"],
+        [77, 59, 58, 50, 40, 31, 20, 17, 16, 13], ["#FF0000", "#00FF00", "#0000FF", "#FFFFFF", "#FFFF00", "#000000", "#008000", "#A52A2A", "#FFD700", "#00BFFF"], [24.12, 18.48, 18.18, 15.67, 12.54, 9.73, 6.28, 5.34, 5.02, 4.08]);
+
+    createDonutChart('chart_7004', ["#FF0000 (Red)", "#0000FF (Blue)", "#FFFF00 (Yellow)", "#FFFFFF (White)", "#000000 (Black)", "#00FF00 (Green)", "#008000 (Dark Green)", "#800080 (Purple)", "#FFD700 (Gold)", "#00BFFF (Deep Sky Blue)"],
+        [75, 61, 42, 41, 41, 34, 33, 15, 15, 9], ["#FF0000", "#0000FF", "#FFFF00", "#FFFFFF", "#000000", "#00FF00", "#008000", "#800080", "#FFD700", "#00BFFF"], [22.52, 18.32, 12.61, 12.32, 12.32, 10.21, 9.91, 4.5, 4.5, 2.7]);
+
+    createDonutChart('chart_7005', ["#FF0000 (Red)", "#0000FF (Blue)", "#000000 (Black)", "#FFFFFF (White)", "#00FF00 (Green)", "#FFD700 (Gold)", "#008000 (Dark Green)", "#FFFF00 (Yellow)", "#964B00 (Brown)", "#8F9779 (Cool Gray)"],
+        [75, 63, 61, 59, 54, 18, 17, 17, 7, 6], ["#FF0000", "#0000FF", "#000000", "#FFFFFF", "#00FF00", "#FFD700", "#008000", "#FFFF00", "#964B00", "#8F9779"], [22.94, 19.27, 18.66, 18.06, 16.3, 5.43, 5.13, 5.13, 2.11, 1.81]);
+
+    createDonutChart('chart_7006', ["#FF0000 (Red)", "#0000FF (Blue)", "#FFFFFF (White)", "#000000 (Black)", "#00FF00 (Green)", "#FFD700 (Gold)", "#008000 (Dark Green)", "#FFFF00 (Yellow)", "#FF69B4 (Hot Pink)", "#00BFFF (Deep Sky Blue)"],
+    [79, 73, 72, 65, 59, 28, 24, 22, 10, 6], ["#FF0000", "#0000FF", "#FFFFFF", "#000000", "#00FF00", "#FFD700", "#008000", "#FFFF00", "#FF69B4", "#00BFFF"], [23.35, 21.6, 21.32, 19.23, 17.45, 8.28, 7.1, 6.51, 2.96, 1.78]);
+
+createDonutChart('chart_7009', ["#FF0000 (Red)", "#FFFFFF (White)", "#FFFF00 (Yellow)", "#0000FF (Blue)", "#008000 (Dark Green)", "#000000 (Black)", "#00FF00 (Green)", "#00BFFF (Deep Sky Blue)", "#800080 (Purple)", "#8B4513 (Saddle Brown)"],
+    [75, 60, 55, 53, 46, 42, 38, 22, 9, 8], ["#FF0000", "#FFFFFF", "#FFFF00", "#0000FF", "#008000", "#000000", "#00FF00", "#00BFFF", "#800080", "#8B4513"], [23.31, 18.65, 17.11, 16.47, 14.31, 13.04, 11.81, 6.83, 2.79, 2.48]);
+
+createDonutChart('chart_7011', ["#0000FF (Blue)", "#FF0000 (Red)", "#000000 (Black)", "#FFFFFF (White)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#FF69B4 (Hot Pink)", "#8E2DE2 (Electric Purple)", "#008000 (Dark Green)", "#FFD700 (Gold)"],
+    [65, 63, 62, 61, 52, 29, 12, 10, 7, 7], ["#0000FF", "#FF0000", "#000000", "#FFFFFF", "#00FF00", "#FFFF00", "#FF69B4", "#8E2DE2", "#008000", "#FFD700"], [20.69, 20.06, 19.75, 19.44, 16.57, 9.24, 3.82, 3.18, 2.23, 2.23]);
+
+createDonutChart('chart_7012', ["#FF0000 (Red)", "#0000FF (Blue)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#000000 (Black)", "#FFFFFF (White)", "#800080 (Purple)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#A52A2A (Brown)"],
+    [81, 70, 54, 54, 37, 27, 20, 20, 13, 10], ["#FF0000", "#0000FF", "#00FF00", "#FFFF00", "#000000", "#FFFFFF", "#800080", "#008000", "#FFD700", "#A52A2A"], [25.31, 21.9, 16.91, 16.91, 11.56, 8.44, 6.25, 6.25, 4.06, 3.13]);
+
+createDonutChart('chart_7013', ["#FF0000 (Red)", "#000000 (Black)", "#FFFFFF (White)", "#0000FF (Blue)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#C0C0C0 (Silver)", "#00BFFF (Deep Sky Blue)", "#FFD700 (Gold)", "#008000 (Dark Green)"],
+    [79, 69, 69, 65, 43, 33, 13, 12, 5, 5], ["#FF0000", "#000000", "#FFFFFF", "#0000FF", "#00FF00", "#FFFF00", "#C0C0C0", "#00BFFF", "#FFD700", "#008000"], [24.92, 21.77, 21.77, 20.52, 13.57, 10.41, 4.1, 3.79, 1.57, 1.57]);
+
+createDonutChart('chart_7014', ["#FF0000 (Red)", "#00FF00 (Green)", "#FFFFFF (White)", "#000000 (Black)", "#0000FF (Blue)", "#FFFF00 (Yellow)", "#808080 (Gray)", "#FFD700 (Gold)", "#00BFFF (Deep Sky Blue)", "#008000 (Dark Green)"],
+    [70, 66, 56, 54, 41, 20, 13, 12, 10, 9], ["#FF0000", "#00FF00", "#FFFFFF", "#000000", "#0000FF", "#FFFF00", "#808080", "#FFD700", "#00BFFF", "#008000"], [24.39, 22.97, 19.51, 18.84, 14.32, 6.99, 4.55, 4.2, 3.5, 3.15]);
+
+createDonutChart('chart_7015', ["#FF0000 (Red)", "#00FF00 (Green)", "#FFFFFF (White)", "#000000 (Black)", "#0000FF (Blue)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#8B4513 (Saddle Brown)", "#FFC0CB (Pink)"],
+    [73, 57, 54, 53, 50, 38, 14, 8, 7, 6], ["#FF0000", "#00FF00", "#FFFFFF", "#000000", "#0000FF", "#FFFF00", "#008000", "#FFD700", "#8B4513", "#FFC0CB"], [23.25, 18.15, 17.18, 16.87, 15.92, 12.1, 4.45, 2.54, 2.23, 1.91]);
+
+createDonutChart('chart_7016', ["#FF0000 (Red)", "#FFFFFF (White)", "#000000 (Black)", "#0000FF (Blue)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#00BFFF (Deep Sky Blue)", "#FFD700 (Gold)", "#808080 (Gray)"],
+    [78, 75, 68, 58, 45, 21, 15, 11, 8, 8], ["#FF0000", "#FFFFFF", "#000000", "#0000FF", "#00FF00", "#FFFF00", "#008000", "#00BFFF", "#FFD700", "#808080"], [24.61, 23.65, 21.45, 18.3, 14.21, 6.63, 4.74, 3.47, 2.52, 2.52]);
+
+createDonutChart('chart_7017', ["#FF0000 (Red)", "#00FF00 (Green)", "#FFFFFF (White)", "#000000 (Black)", "#0000FF (Blue)", "#FFFF00 (Yellow)", "#FFD700 (Gold)", "#008000 (Dark Green)", "#8B4513 (Saddle Brown)", "#808080 (Gray)"],
+    [69, 60, 49, 47, 46, 28, 14, 13, 7, 7], ["#FF0000", "#00FF00", "#FFFFFF", "#000000", "#0000FF", "#FFFF00", "#FFD700", "#008000", "#8B4513", "#808080"], [23.46, 20.41, 16.67, 15.99, 15.63, 9.52, 4.76, 4.42, 2.38, 2.38]);
+
+createDonutChart('chart_7018', ["#FF0000 (Red)", "#0000FF (Blue)", "#FFFFFF (White)", "#000000 (Black)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#FF00FF (Magenta)", "#FF6666 (Light Red)"],
+    [76, 68, 66, 59, 58, 35, 28, 9, 6, 6], ["#FF0000", "#0000FF", "#FFFFFF", "#000000", "#00FF00", "#FFFF00", "#008000", "#FFD700", "#FF00FF", "#FF6666"], [24.76, 22.15, 21.51, 19.23, 18.91, 11.42, 9.13, 2.93, 1.96, 1.96]);
+
+createDonutChart('chart_7019', ["#FFFFFF (White)", "#0000FF (Blue)", "#FFFFFF (White)", "#000000 (Black)", "#00FF00 (Green)", "#FFFF00 (Yellow)", "#008000 (Dark Green)", "#FFD700 (Gold)", "#FF00FF (Magenta)", "#FF6666 (Light Red)"],
+    [76, 68, 66, 59, 58, 35, 28, 9, 6, 6], ["#FF0000", "#0000FF", "#FFFFFF", "#000000", "#00FF00", "#FFFF00", "#008000", "#FFD700", "#FF00FF", "#FF6666"], [24.76, 22.15, 21.51, 19.23, 18.91, 11.42, 9.13, 2.93, 1.96, 1.96]);
+
+
+    // Add more donut charts for other categories using the same pattern
+</script>
+
+</body>
+</html>
